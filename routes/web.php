@@ -1,7 +1,5 @@
 <?php
 
-Route::get('/','PostController@index');
+Route::get('/','PostController@index')->name('post');
 
-Route::get('/blog/show', function () {
-    return view('blog.show');
-});
+Route::get('/blog/{post}','PostController@show')->name('post.show');

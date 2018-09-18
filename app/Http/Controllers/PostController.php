@@ -17,4 +17,11 @@ class PostController extends Controller
         return view('blog.index',compact('posts'));
         // dd(\Db::getQueryLog());
     }
+
+    public function show(Post $post)
+    {
+        //$post = Post::where('slug',$slug)->first();
+       //dd($post);
+        return view('blog.show',compact('post'));
+    }
 }
