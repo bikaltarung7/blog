@@ -12,7 +12,9 @@ class PostController extends Controller
 
     public function index()
     {
+        // \DB::enableQueryLog();
         $posts = Post::with('author')->latestFirst()->paginate($this->limit);
         return view('blog.index',compact('posts'));
+        // dd(\Db::getQueryLog());
     }
 }
