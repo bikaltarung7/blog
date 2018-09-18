@@ -25,7 +25,7 @@
                             </div>
 
                             <p>
-                            {{ $post->body }}
+                            {!! Markdown::convertToHtml($post->body) !!}
                             </p>
                         </div>
                     </div>
