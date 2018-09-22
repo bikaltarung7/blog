@@ -9,5 +9,6 @@ $factory->define(App\Post::class, function (Faker $faker) {
         'slug' => $faker->slug, // secret
         'excerpt' => $faker->paragraph($nbSentences = 2, $variableNbSentences = true),
         'body' => $faker->text($maxNbChars = 200),
+        'category_id' => $faker->numberBetween($min = 1, $max = 5)
     ];
 });
