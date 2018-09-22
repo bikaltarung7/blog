@@ -29,6 +29,20 @@ class User extends Authenticatable
 
     public function posts()
     {
-        return $this->hasMany(App\Post::class);
+        return $this->hasMany(Post::class,'author_id');
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'Name';
+    }
+
+    public function gravatar()
+    {
+        $email = "someone@somewhere.com";
+        $default = "{{ asset('/img/user.jpg)}";
+        $size = 100;
+
+        return "https://www.gravatar.com/avatar/" . md5( strtolower( trim( $email ) ) ) . "?d=" . urlencode( $default ) . "&s=" . $size;
     }
 }
