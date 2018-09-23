@@ -1,12 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    Page not found
-</body>
-</html>
+@extends('layouts.main')
+
+@section('content')
+    <div class="container">
+    <div class="flex-center position-ref full-height">
+            <div class="content">
+                <div class="col-md-12 page-not-found">
+                   <h2>Page Not Found</h2>
+                   <p>Sorry the page your'e looking for couldn't be found.</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+@endsection
+
+
