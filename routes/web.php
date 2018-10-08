@@ -9,3 +9,9 @@ Route::get('/blog/category/{category}','PostController@category')->name('post.ca
 Route::get('/blog/author/{author}','PostController@author')->name('post.author');
 
 Route::get('category/{category}','CategoryController@index')->name('category');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('blog','BlogController');

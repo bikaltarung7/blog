@@ -13,6 +13,7 @@ class PostController extends Controller
 {
     protected $limit = 3;
 
+
     public function index()
     {
         // $categories = Category::with('posts')->orderBy('title','asc')->get ();
