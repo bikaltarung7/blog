@@ -11,7 +11,9 @@
                   <div class="col-sm-6 text-left">
                     <h2 class="card-title">Blogs</h2>
                   </div>
-                 
+                  <div class="col-sm-6 text-right">
+                    <a href="{{ route('blog.create')}}" class="btn btn-primary">Add new</a>
+                  </div>
                 </div>
               </div>
               <div class="card-body">

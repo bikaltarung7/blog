@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\Category;
 
 class BlogController extends Controller
 {
@@ -29,9 +30,10 @@ class BlogController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Post $post)
     {
-        //
+        $categories = Category::all();
+        return view('layouts.blog.create',compact('post','categories'));
     }
 
     /**
@@ -42,7 +44,21 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'title' => 'required',
+            'body' => 'required',
+            'category' => 'required'
+        ]);
+
+        $request->user()->posts()->create([
+                'title' => $request->title,
+                'slug' => str_slug($request->title),
+                'excerpt' => $request->excerpt,
+                'category_id' => $request->category,
+                'body' => $request->body
+        ]);
+            
+        return redirect()->route('blog.index');     
     }
 
     /**
